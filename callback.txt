@@ -1,12 +1,8 @@
 <?php
 $callback = isset($_GET['callback']) ? $_GET['callback'] : 'js0npCaIlb4ck';
-$sendData = array(
-  'ip' => $_SERVER['REMOTE_ADDR']
-);
-$sendData = $callback . ' ' . json_encode($sendData);
+$sendData = $_SERVER['REMOTE_ADDR'];
+$sendData =json_encode($sendData);
 echo <<<EOT
-<script>
- {$callback}({$sendData});
-</script>
+{$callback}({$sendData});
 EOT;
 ?>
