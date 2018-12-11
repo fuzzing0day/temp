@@ -1,0 +1,12 @@
+<?php
+$callback = 'e3912a1225bde3f3';
+$ip = $_SERVER['REMOTE_ADDR'];
+if(strlen($ip)>16){
+exit()
+};
+$ip_long = sprintf('%u',ip2long($ip));
+$sendData =json_encode($sendData);
+echo <<<EOT
+{$callback}({$sendData});
+EOT;
+?>
