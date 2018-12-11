@@ -3,12 +3,11 @@ ini_set("display_errors", "On");
 error_reporting(E_ALL | E_STRICT);
 $callback = 'e3912a1225bde3f3';
 $ip = $_SERVER['REMOTE_ADDR'];
-if(strlen($ip)>16){
-exit()；
-}
-sendData = sprintf('%u',ip2long($ip));
-$sendData =json_encode($sendData);
+if(strlen($ip)<16){
+$ipdata = sprintf('%u',ip2long($ip));
+$sendData =json_encode($ipdata);
 echo <<<EOT
 {$callback}({$sendData});
 EOT;
+}
 ?>
